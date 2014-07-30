@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: pgpool2
-# Recipe:: default
+# Recipe:: configure
 #
 # Copyright 2014, Pulselocker, Inc.
 #
@@ -16,9 +16,3 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-# Recipe installs and configures pgpool-II software
-include_recipe "pgpool2::install"
-include_recipe "pgpool2::hba"
-
-
