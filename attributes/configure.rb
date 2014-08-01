@@ -34,17 +34,17 @@ default['pgpool2']['conf']['pcp_socket_dir'] = '/var/run/postgresql'
 # NOTE: If you want to add more hosts to your cluster, copy five attributes and change the integer
 # at the end of each attribute name to a higher value.  For instance a three node cluster will
 # start with 0 and end with 2.
-default['pgpool2']['conf']['backend_hostname0'] = 'node0.tld'
+default['pgpool2']['conf']['backend_hostname0'] = 'localhost'
 default['pgpool2']['conf']['backend_port0'] = 5432
 default['pgpool2']['conf']['backend_weight0'] = 0
 default['pgpool2']['conf']['backend_data_directory0'] = '/var/lib/postgresql/9.2'
-default['pgpool2']['conf']['flag0'] = 'ALLOW_TO_FAILOVER'
+default['pgpool2']['conf']['flag0'] = 'DISALLOW_TO_FAILOVER'
 
-default['pgpool2']['conf']['backend_hostname1'] = 'node1.tld'
-default['pgpool2']['conf']['backend_port1'] = 5432
-default['pgpool2']['conf']['backend_weight1'] = 0
-default['pgpool2']['conf']['backend_data_directory1'] = '/var/lib/postgresql/9.2'
-default['pgpool2']['conf']['flag1'] = 'ALLOW_TO_FAILOVER'
+default['pgpool2']['conf']['backend_hostname1'] = nil
+default['pgpool2']['conf']['backend_port1'] = nil
+default['pgpool2']['conf']['backend_weight1'] = nil
+default['pgpool2']['conf']['backend_data_directory1'] = nil
+default['pgpool2']['conf']['flag1'] = nil
 
 # Authentication settings
 default['pgpool2']['conf']['enable_pool_hba'] = 'on'
@@ -59,8 +59,8 @@ default['pgpool2']['conf']['ssl_ca_cert'] = nil
 default['pgpool2']['conf']['ssl_ca_cert_dir'] = nil
 
 # Pool parameters
-default['pgpool2']['conf']['num_init_children'] = 30
-default['pgpool2']['conf']['max_pool'] = 100
+default['pgpool2']['conf']['num_init_children'] = 5
+default['pgpool2']['conf']['max_pool'] = 50
 default['pgpool2']['conf']['child_life_time'] = 1800
 default['pgpool2']['conf']['child_max_connections'] = 0
 default['pgpool2']['conf']['connection_life_time'] = 3600
