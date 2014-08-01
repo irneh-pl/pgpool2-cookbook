@@ -4,7 +4,7 @@ This cookbook installs and configures pgpool-II, a connection management applica
 
 Requirements
 ------------
-The cookbook currently only supports Ubuntu OS.
+The cookbook currently only supports Ubuntu OS.  Tested on Ubuntu 12.04 and 14.04.
 
 #### packages
 - `build-essential` - Tools required for building software.
