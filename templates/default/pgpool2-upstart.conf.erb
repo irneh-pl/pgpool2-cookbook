@@ -1,0 +1,12 @@
+description "pgpool-II daemon"
+
+start on runlevel [2]
+stop on runlevel [016]
+
+console owner
+
+exec <%= node['pgpool2']['prefix_dir'] %>/bin/pgpool -n -d -f /<%= node['pgpool2']['config_dir'] %>/pgpool.conf > <%= node['pgpool2']['log_dir'] %>/pgpool.log 2>&1
+
+post-stop exec <%= node['pgpool2']['prefix_dir'] %>/bin/pgpool -m immediate stop
+
+respawn

@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: pgpool2
-# Recipe:: default
+# Recipe:: configure
 #
 # Copyright 2014, Pulselocker, Inc.
 #
@@ -17,10 +17,14 @@
 # limitations under the License.
 #
 
-# Recipe installs and configures pgpool-II software
-include_recipe "pgpool2::install"
-include_recipe "pgpool2::configure"
-include_recipe "pgpool2::hba"
+###
+### This recipe generates the pgpool.conf configuration file.  The configuration settings are
+### controlled by the attributes/configure.rb file.
+###
 
-
-
+template "#{node['pgpool2']['config_dir']}/pgpool.conf" do
+  source "pgpool.conf.erb"
+  owner "root"
+  group "root"
+  mode 0644
+end

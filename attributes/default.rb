@@ -17,10 +17,10 @@
 # limitations under the License.
 #
 
-# Recipe installs and configures pgpool-II software
-include_recipe "pgpool2::install"
-include_recipe "pgpool2::configure"
-include_recipe "pgpool2::hba"
-
-
-
+# Installation settings
+default['pgpool2']['version'] = '3.3.3'
+default['pgpool2']['prefix_dir'] = '/usr/local'
+default['pgpool2']['config_dir'] = '/usr/local/etc'
+default['pgpool2']['log_dir'] = '/var/log/postgresql'
+default['pgpool2']['use_ssl'] = false
+default['pgpool2']['memcached_dir'] = nil
