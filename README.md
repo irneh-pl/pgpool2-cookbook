@@ -84,7 +84,7 @@ Contributing
 
 License and Authors
 -------------------
-Authors: Sean M. Sullivan <sean@pulselocmer.com>
+Authors: Sean M. Sullivan <sean@pulselocker.com>
 
 Copyright (c) 2014, Pulselocker, Inc.
 
