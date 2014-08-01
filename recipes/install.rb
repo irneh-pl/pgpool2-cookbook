@@ -17,6 +17,10 @@
 # limitations under the License.
 #
 
+###
+### This recipe downloads the pgpool2 source, compiles, and installs the application.
+###
+
 include_recipe 'build-essential'
 include_recipe 'postgresql::client'
 
@@ -29,26 +33,32 @@ if node['pgpool2']['memcached_dir']
   configuration = configuration + " --with-memcached=#{node['pgpool2']['memcached_dir']}"
 end
 
-# Download the source from project site
-remote_file "#{Chef::Config[:file_cache_path]}/pgpool-II-#{node['pgpool2']['version']}.tar.gz" do
-  source "http://www.pgpool.net/download.php?f=pgpool-II-#{node['pgpool2']['version']}.tar.gz"
-  action :create
-end
+remote_file = "http://www.pgpool.net/download.php?f=pgpool-II-#{node['pgpool2']['version']}.tar.gz"
+source_file = "pgpool-II-#{node['pgpool2']['version']}.tar.gz"
 
-bash "build-and-install-pgpool" do
+# Compile and install pgpool application
+bash "build_and_install_pgpool2" do
   cwd Chef::Config[:file_cache_path]
   code <<-EOF
-    tar -zxvf pgpool-II-#{node['pgpool2']['version']}.tar.gz
-    (cd pgpool-II-#{node['pgpool2']['version']} && ./configure #{configuration})
-    (cd pgpool-II-#{node['pgpool2']['version']} && make && make install)
+    cd #{Chef::Config[:file_cache_path]}
+    wget -O #{source_file} #{remote_file}
+    tar -zxvf #{source_file}
+    cd pgpool-II-#{node['pgpool2']['version']}
+    ./configure #{configuration}
+    make && make install
   EOF
 end
 
-# apt_package "libpgpool0" do
-#   action :install
-# end
-#
-# apt_package "pgpool2" do
-#   action :install
-# end
+# Set up the upstart service
+template "/etc/init/pgpool2.conf" do
+  source "pgpool2-upstart.conf.erb"
+  owner "root"
+  group "root"
+  mode 0644
+end
+service "pgpool2" do
+  provider Chef::Provider::Service::Upstart
+  supports :status => true, :restart => true
+  action :enable
+end
 

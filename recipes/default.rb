@@ -19,6 +19,8 @@
 
 # Recipe installs and configures pgpool-II software
 include_recipe "pgpool2::install"
+include_recipe "pgpool2::configure"
 include_recipe "pgpool2::hba"
+
 
 

@@ -16,3 +16,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+###
+### This recipe generates the pgpool.conf configuration file.  The configuration settings are
+### controlled by the attributes/configure.rb file.
+###
+
+template "#{node['pgpool2']['config_dir']}/pgpool.conf" do
+  source "pgpool.conf.erb"
+  owner "root"
+  group "root"
+  mode 0644
+end
