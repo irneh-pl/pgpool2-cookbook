@@ -6,5 +6,6 @@ description      'Installs/Configures pgpool2-cookbook'
 long_description 'Installs/Configures pgpool2-cookbook'
 version          '0.1.0'
 
+depends 'build-essential'
 depends 'postgresql', '>= 3.4.1'
 

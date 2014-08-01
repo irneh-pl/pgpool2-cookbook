@@ -43,7 +43,7 @@ Attributes
       <td><tt>['pgpool2']['memcache_path']</tt></td>
       <td>String</td>
       <td>Path to memcache if using this feature.</td>
-      <td><tt>N/A</tt></td>
+      <td><tt>nil</tt></td>
     </tr>
 </table>
 
