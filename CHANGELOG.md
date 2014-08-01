@@ -1,9 +1,16 @@
-# 0.1.0
+PGPOOL2-COOKBOOK CHANGELOG
+==========================
 
-Initial release of pgpool2-cookbook
+Be sure to view the README for implementation details!
 
-* Enhancements
-  * an enhancement
+0.2.0
+-----
+- Updated configure recipe to generate the pgpool.conf from the configure attributes.
 
-* Bug Fixes
-  * a bug fix
+0.1.0
+-----
+- Included install recipe that installs pgpool-II from source.
+- Included the hba recipe, which generates the pg_hba.conf and pool_hba.conf files.
+- Supports test-kitchen integration testing with Vagrant.
+- Tested with Ubuntu 12.04 and 14.04.
+

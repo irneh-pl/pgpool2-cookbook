@@ -47,6 +47,14 @@ Attributes
     </tr>
 </table>
 
+#### pgpool2::configure
+The attributes in the configure.rb file are used to generate the pgpool.conf file.  The keys are listed under:
+['pgpool']['config'].  Override the attributes in your Chef artifact to generate the desired configuration.  It 
+may be helpful to review the comments in the attributes/configure.rb file and the pgpool-II documentation.
+
+Values that are defined as true or false will translate to 'on' or 'off' in the configuration file.  If you do not
+wish to include a particular key in the configuration, set it's value to nil.
+
 Usage
 -----
 #### pgpool2::default
