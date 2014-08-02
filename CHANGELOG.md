@@ -3,6 +3,10 @@ PGPOOL2-COOKBOOK CHANGELOG
 
 Be sure to view the README for implementation details!
 
+0.2.1
+-----
+- Added delayed service restart event to template actions.
+
 0.2.0
 -----
 - Updated configure recipe to generate the pgpool.conf from the configure attributes.

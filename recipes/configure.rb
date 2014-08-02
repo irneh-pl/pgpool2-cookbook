@@ -27,8 +27,5 @@ template "#{node['pgpool2']['config_dir']}/pgpool.conf" do
   owner "root"
   group "root"
   mode 0644
-end
-
-service "pgpool2" do
-  action :restart
+  notifies :restart, "service[pgpool2]", :delayed
 end
