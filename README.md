@@ -34,17 +34,29 @@ Attributes
     <td><tt>/usr/local</tt></td>
   </tr>
   <tr>
+    <td><tt>['pgpool2']['log_dir']</tt></td>
+    <td>String</td>
+    <td>Directory for log files.</td>
+    <td><tt>/var/log/postgresql</tt></td>
+  </tr>
+  <tr>
     <td><tt>['pgpool2']['use_ssl']</tt></td>
     <td>Boolean</td>
     <td>Set to true if you want to compile OpenSSL support.  Requires OpenSSL to be already installed.</td>
     <td><tt>false</tt></td>
   </tr>
-    <tr>
-      <td><tt>['pgpool2']['memcache_path']</tt></td>
-      <td>String</td>
-      <td>Path to memcache if using this feature.</td>
-      <td><tt>nil</tt></td>
-    </tr>
+  <tr>
+    <td><tt>['pgpool2']['memcache_path']</tt></td>
+    <td>String</td>
+    <td>Path to memcache if using this feature.</td>
+    <td><tt>nil</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['pgpool2']['user']</tt></td>
+    <td>String</td>
+    <td>Service account user.</td>
+    <td><tt>postgres</tt></td>
+  </tr>
 </table>
 
 #### pgpool2::configure
