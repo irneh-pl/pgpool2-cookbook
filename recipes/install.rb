@@ -49,6 +49,20 @@ bash "build_and_install_pgpool2" do
   EOF
 end
 
+directory node['pgpool2']['log_dir'] do
+  owner "root"
+  group "root"
+  mode 0750
+  action :create
+end
+
+directory "/var/run/postgresql" do
+  owner "root"
+  group "root"
+  mode 0750
+  action :create
+end
+
 # Set up the upstart service
 template "/etc/init/pgpool2.conf" do
   source "pgpool2-upstart.conf.erb"

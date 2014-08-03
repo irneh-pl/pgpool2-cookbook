@@ -6,6 +6,7 @@ Be sure to view the README for implementation details!
 0.2.1
 -----
 - Added delayed service restart event to template actions.
+- Install recipe creates directories for logs and pid file.
 
 0.2.0
 -----
