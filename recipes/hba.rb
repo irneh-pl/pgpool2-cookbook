@@ -34,6 +34,7 @@ template "#{node['pgpool2']['config_dir']}/pg_hba.conf" do
   variables(
       :ip_addresses => records
   )
+  notifies :restart, "service[pgpool2]", :delayed
 end
 
 template "#{node['pgpool2']['config_dir']}/pool_hba.conf" do
@@ -44,8 +45,6 @@ template "#{node['pgpool2']['config_dir']}/pool_hba.conf" do
   variables(
       :ip_addresses => records
   )
+  notifies :restart, "service[pgpool2]", :delayed
 end
 
-service "pgpool2" do
-  action :restart
-end

@@ -24,3 +24,5 @@ default['pgpool2']['config_dir'] = '/usr/local/etc'
 default['pgpool2']['log_dir'] = '/var/log/postgresql'
 default['pgpool2']['use_ssl'] = false
 default['pgpool2']['memcached_dir'] = nil
+default['pgpool2']['user'] = 'postgres'
+
