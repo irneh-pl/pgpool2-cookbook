@@ -8,13 +8,6 @@ console owner
 
 exec sudo -u <%= node['pgpool2']['user'] %> <%= node['pgpool2']['prefix_dir'] %>/bin/pgpool -n -d -f <%= node['pgpool2']['config_dir'] %>/pgpool.conf > <%= node['pgpool2']['log_dir'] %>/pgpool.log 2>&1
 
-
-post-start script
-    echo "`date`: pgpool-II service (re)started" >> <%= node['pgpool2']['log_dir'] %>/pgpool.log 2>&1
-end script
-
-post-stop script
-    exec <%= node['pgpool2']['prefix_dir'] %>/bin/pgpool -m immediate stop
-end script
+post-stop exec <%= node['pgpool2']['prefix_dir'] %>/bin/pgpool -m immediate stop
 
 respawn
