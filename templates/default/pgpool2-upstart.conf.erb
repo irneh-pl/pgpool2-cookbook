@@ -1,12 +1,20 @@
-description "pgpool-II daemon"
+description "pgpool-II database connection manager"
+author      "Pulselocker, Inc."
 
-start on runlevel [2]
-stop on runlevel [016]
+start on started networking
+stop on shutdown
 
 console owner
 
-exec <%= node['pgpool2']['prefix_dir'] %>/bin/pgpool -n -d -f /<%= node['pgpool2']['config_dir'] %>/pgpool.conf > <%= node['pgpool2']['log_dir'] %>/pgpool.log 2>&1
+exec sudo -u <%= node['pgpool2']['user'] %> <%= node['pgpool2']['prefix_dir'] %>/bin/pgpool -n -d -f <%= node['pgpool2']['config_dir'] %>/pgpool.conf > <%= node['pgpool2']['log_dir'] %>/pgpool.log 2>&1
 
-post-stop exec <%= node['pgpool2']['prefix_dir'] %>/bin/pgpool -m immediate stop
+
+post-start script
+    echo "`date`: pgpool-II service (re)started" >> <%= node['pgpool2']['log_dir'] %>/pgpool.log 2>&1
+end script
+
+post-stop script
+    exec <%= node['pgpool2']['prefix_dir'] %>/bin/pgpool -m immediate stop
+end script
 
 respawn

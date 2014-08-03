@@ -24,6 +24,14 @@
 include_recipe 'build-essential'
 include_recipe 'postgresql::client'
 
+# Create runtime user account
+user "#{node['pgpool2']['user']}" do
+  comment "Postgres Runtime User"
+  shell "/bin/false"
+  system true
+  action :create
+end
+
 # Define the make configuration options
 configuration = "--prefix=#{node['pgpool2']['prefix_dir']}"
 if node['pgpool2']['use_ssl']
@@ -44,6 +52,7 @@ bash "build_and_install_pgpool2" do
     wget -O #{source_file} #{remote_file}
     tar -zxvf #{source_file}
     cd pgpool-II-#{node['pgpool2']['version']}
+    echo "...configuration options: #{configuration}"
     ./configure #{configuration}
     make && make install
   EOF
@@ -51,15 +60,15 @@ end
 
 directory node['pgpool2']['log_dir'] do
   owner "root"
-  group "root"
-  mode 0750
+  group node['pgpool2']['user']
+  mode 0770
   action :create
 end
 
 directory "/var/run/postgresql" do
   owner "root"
-  group "root"
-  mode 0750
+  group node['pgpool2']['user']
+  mode 0770
   action :create
 end
 
