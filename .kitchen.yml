@@ -11,5 +11,8 @@ platforms:
 
 suites:
   - name: default
-    run_list: recipe[pgpool2]
+    run_list: recipe[pgpool2::default]
+    attributes:
+  - name: install
+    run_list: recipe[pgpool2::install]
     attributes:
