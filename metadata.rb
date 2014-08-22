@@ -12,5 +12,6 @@ recipe 'pgpool2::hba', 'Generates the hba conf files.'
 recipe 'pgpool2::configure', 'Generates the pgpool.conf file.'
 
 depends 'build-essential'
-depends 'postgresql', '>= 3.4.1'
+depends 'postgresql'
+depends 'apt'
 

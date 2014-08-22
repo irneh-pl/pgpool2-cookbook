@@ -20,3 +20,21 @@
 ###
 # Internal recipe to configure auto-failover in master-slave mode configurations
 ###
+template "/usr/local/share/pgpool-II/failover.sh}" do
+  source "failover.sh.erb"
+  owner node['pgpool2']['user']
+  group node['pgpool2']['user']
+  mode 0750
+end
+template "/usr/local/share/pgpool-II/recovery.sh" do
+  source "recovery.sh.erb"
+  owner node['pgpool2']['user']
+  group node['pgpool2']['user']
+  mode 0750
+end
+template "/usr/local/share/pgpool-II/remote_start.sh" do
+  source "remote_start.sh.erb"
+  owner node['pgpool2']['user']
+  group node['pgpool2']['user']
+  mode 0750
+end

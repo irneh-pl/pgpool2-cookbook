@@ -20,7 +20,9 @@
 ###
 ### This recipe downloads the pgpool2 source, compiles, and installs the application.
 ###
-
+if node['platform_family'] == 'debian'
+  include_recipe "apt::default"
+end
 include_recipe 'build-essential'
 include_recipe 'postgresql::client'
 
@@ -70,6 +72,11 @@ directory "/var/run/postgresql" do
   group node['pgpool2']['user']
   mode 0770
   action :create
+end
+
+# If master-slave mode enabled, install recovery scripts
+if node['pgpool2']['config']['master_slave_mode']
+  include_recipe "pgpool2::_failover"
 end
 
 # Set up the upstart service

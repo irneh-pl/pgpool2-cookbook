@@ -70,9 +70,6 @@ wish to include a particular key in the configuration, set it's value to nil.
 Usage
 -----
 #### pgpool2::default
-TODO: Write usage instructions for each cookbook.
-
-e.g.
 Just include `pgpool2` in your node's `run_list`:
 
 ```json

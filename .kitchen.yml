@@ -16,3 +16,7 @@ suites:
   - name: install
     run_list: recipe[pgpool2::install]
     attributes:
+  - name: master
+    run_list: recipe[pgpool2::default]
+    attributes: { pgpool2: { config: { master_slave_mode: true } } }
+
