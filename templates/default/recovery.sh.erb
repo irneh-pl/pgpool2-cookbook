@@ -5,8 +5,8 @@ REMOTE_HOST=$2
 REMOTE_PGDATA=$3
 
 PORT=5432
-PGHOME=/home/yugo-n/pgsql-9.2.1
-ARCH=$PGHOME/data/arch
+PGHOME=<%=node['pgpool2']['pg_home'] %>
+ARCH=<%=node['pgpool2']['pg_arch'] %>
 
 rm  -rf $ARCH/*
 

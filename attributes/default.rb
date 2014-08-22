@@ -26,3 +26,8 @@ default['pgpool2']['use_ssl'] = false
 default['pgpool2']['memcached_dir'] = nil
 default['pgpool2']['user'] = 'postgres'
 
+# Other settings
+default['pgpool2']['pg_home'] = '/var/lib/postgresql/9.1'
+default['pgpool2']['pg_arch'] = node['pgpool2']['pg_home'] + '/archive'
+
+
