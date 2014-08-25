@@ -3,6 +3,15 @@ PGPOOL2-COOKBOOK CHANGELOG
 
 Be sure to view the README for implementation details!
 
+1.0.1
+-----
+- Fixed bug for Debian systems.  Performs apt update before installing other packages.
+- Added recipe to install and configure failover/recovery scripts for master-slave mode.
+
+1.0.0
+-----
+- Production release.
+
 0.2.1
 -----
 - Added delayed service restart event to template actions.

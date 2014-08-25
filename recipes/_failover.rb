@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: pgpool2
-# Recipe:: default
+# Recipe:: _failover
 #
 # Copyright 2014, Pulselocker, Inc.
 #
@@ -17,17 +17,24 @@
 # limitations under the License.
 #
 
-# Installation settings
-default['pgpool2']['version'] = '3.3.3'
-default['pgpool2']['prefix_dir'] = '/usr/local'
-default['pgpool2']['config_dir'] = '/usr/local/etc'
-default['pgpool2']['log_dir'] = '/var/log/postgresql'
-default['pgpool2']['use_ssl'] = false
-default['pgpool2']['memcached_dir'] = nil
-default['pgpool2']['user'] = 'postgres'
-
-# Other settings
-default['pgpool2']['pg_home'] = '/var/lib/postgresql/9.1'
-default['pgpool2']['pg_arch'] = node['pgpool2']['pg_home'] + '/archive'
-
-
+###
+# Internal recipe to configure auto-failover in master-slave mode configurations
+###
+template "/usr/local/share/pgpool-II/failover.sh}" do
+  source "failover.sh.erb"
+  owner node['pgpool2']['user']
+  group node['pgpool2']['user']
+  mode 0750
+end
+template "/usr/local/share/pgpool-II/recovery.sh" do
+  source "recovery.sh.erb"
+  owner node['pgpool2']['user']
+  group node['pgpool2']['user']
+  mode 0750
+end
+template "/usr/local/share/pgpool-II/remote_start.sh" do
+  source "remote_start.sh.erb"
+  owner node['pgpool2']['user']
+  group node['pgpool2']['user']
+  mode 0750
+end

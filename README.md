@@ -57,6 +57,18 @@ Attributes
     <td>Service account user.</td>
     <td><tt>postgres</tt></td>
   </tr>
+  <tr>
+    <td><tt>['pgpool2']['pg_home']</tt></td>
+    <td>String</td>
+    <td>Base directory of PostgreSQL data directory.</td>
+    <td><tt>/var/lib/postgresql/9.1</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['pgpool2']['pg_arch']</tt></td>
+    <td>String</td>
+    <td>Directory path to PostgreSQL archive directory.</td>
+    <td><tt>/var/lib/postgresql/9.1/archive</tt></td>
+  </tr>
 </table>
 
 #### pgpool2::configure
@@ -70,9 +82,6 @@ wish to include a particular key in the configuration, set it's value to nil.
 Usage
 -----
 #### pgpool2::default
-TODO: Write usage instructions for each cookbook.
-
-e.g.
 Just include `pgpool2` in your node's `run_list`:
 
 ```json
