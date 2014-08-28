@@ -21,7 +21,7 @@
 ### This recipe downloads the pgpool2 source, compiles, and installs the application.
 ###
 if node['platform_family'] == 'debian'
-  include_recipe "apt::default"
+  include_recipe 'apt::default'
 end
 include_recipe 'build-essential'
 include_recipe 'postgresql::client'
