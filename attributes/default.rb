@@ -22,9 +22,11 @@ default['pgpool2']['version'] = '3.4.3'
 default['pgpool2']['prefix_dir'] = '/usr/local'
 default['pgpool2']['config_dir'] = '/usr/local/etc'
 default['pgpool2']['log_dir'] = '/var/log/postgresql'
+default['pgpool2']['run_dir'] = '/var/run/postgresql'
 default['pgpool2']['use_ssl'] = false
 default['pgpool2']['memcached_dir'] = nil
 default['pgpool2']['user'] = 'postgres'
+default['pgpool2']['group'] = 'postgres'
 
 # Other settings
 default['pgpool2']['pg_home'] = '/var/lib/postgresql/9.3'

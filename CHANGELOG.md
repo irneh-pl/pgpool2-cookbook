@@ -5,10 +5,9 @@ Be sure to view the README for implementation details!
 
 1.1.0 (2015-09-29)
 ------------------
-- Supports PostgreSQL 9.3 deployments.
-- Supports Ubuntu 14.04 LTS.
 - Deprecated Ubuntu 12.04 LTS support.
 - Installs pgpool-II v3.4.3.
+- Updated Upstart service script.
 
 1.0.1
 -----
