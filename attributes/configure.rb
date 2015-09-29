@@ -37,7 +37,7 @@ default['pgpool2']['config']['pcp_socket_dir'] = '/var/run/postgresql'
 default['pgpool2']['config']['backend_hostname0'] = 'localhost'
 default['pgpool2']['config']['backend_port0'] = 5432
 default['pgpool2']['config']['backend_weight0'] = 0
-default['pgpool2']['config']['backend_data_directory0'] = '/var/lib/postgresql/9.2'
+default['pgpool2']['config']['backend_data_directory0'] = '/var/lib/postgresql/9.3'
 default['pgpool2']['config']['flag0'] = 'DISALLOW_TO_FAILOVER'
 
 default['pgpool2']['config']['backend_hostname1'] = nil
