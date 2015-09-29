@@ -4,7 +4,7 @@ This cookbook installs and configures pgpool-II, a connection management applica
 
 Requirements
 ------------
-The cookbook currently only supports Ubuntu OS.  Tested on Ubuntu 12.04 and 14.04.
+The cookbook currently only supports Ubuntu 14.04.
 
 #### packages
 - `build-essential` - Tools required for building software.
@@ -25,7 +25,7 @@ Attributes
     <td><tt>['pgpool2']['version']</tt></td>
     <td>String</td>
     <td>Version number to download and install.</td>
-    <td><tt>3.3.3</tt></td>
+    <td><tt>3.4.3</tt></td>
   </tr>
   <tr>
     <td><tt>['pgpool2']['prefix_dir']</tt></td>
@@ -61,13 +61,13 @@ Attributes
     <td><tt>['pgpool2']['pg_home']</tt></td>
     <td>String</td>
     <td>Base directory of PostgreSQL data directory.</td>
-    <td><tt>/var/lib/postgresql/9.1</tt></td>
+    <td><tt>/var/lib/postgresql/9.3</tt></td>
   </tr>
   <tr>
     <td><tt>['pgpool2']['pg_arch']</tt></td>
     <td>String</td>
     <td>Directory path to PostgreSQL archive directory.</td>
-    <td><tt>/var/lib/postgresql/9.1/archive</tt></td>
+    <td><tt>/var/lib/postgresql/9.3/archive</tt></td>
   </tr>
 </table>
 
